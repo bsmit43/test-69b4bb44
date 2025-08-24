@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact test | LensVision Photography Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .btn {
+            border-radius: var(--border-radius);
+            padding: 12px 28px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .section-title.text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            height: 400px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 90px;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .page-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+
+        .breadcrumb-item {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--light);
+        }
+
+        .breadcrumb-item a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Contact Info */
+        .contact-info-box {
+            background: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .contact-info-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-info-icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            background: var(--primary);
+            color: var(--light);
+            font-size: 30px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+
+        .contact-info-box:hover .contact-info-icon {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .contact-info-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .contact-info-box p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info-box a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info-box a:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #fff;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            height: 50px;
+            border: 1px solid #e1e1e1;
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            font-size: 16px;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: none;
+        }
+
+        textarea.form-control {
+            height: 200px;
+            resize: none;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Map */
+        .map-container {
+            height: 450px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Business Hours */
+        .business-hours {
+            background: var(--primary);
+            color: var(--light);
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .business-hours h3 {
+            color: var(--light);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 500;
+        }
+
+        .closed {
+            color: var(--accent);
+        }
+
+        /* Follow Us */
+        .social-follow {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .social-follow h3 {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--primary);
+        }
+
+        .social-icon i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .social-icon span {
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .faq-question {
+            position: relative;
+            padding: 20px 50px 20px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .faq-question::after {
+            content: '\f282';
+            font-family: 'Bootstrap-icons';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+        }
+
+        .faq-question.active {
+            color: var(--primary);
+        }
+
+        .faq-question.active::after {
+            content: '\f286';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #999;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-about {
+            margin-bottom: 30px;
+        }
+
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links li a {
+            color: #999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info li i {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .footer-social {
+            margin-top: 30px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* Form Success/Error Messages */
+        .form-message {
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            .section-padding {
+                padding: 80px 0;
+            }
+            .section-title h2 {
+                font-size: 36px;
+            }
+            .page-banner h1 {
+                font-size: 36px;
+            }
+            .contact-form {
+                padding: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+            .page-banner h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style type="text/css">
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .btn {
+            border-radius: var(--border-radius);
+            padding: 12px 28px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .section-title.text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            height: 400px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 90px;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .page-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+
+        .breadcrumb-item {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--light);
+        }
+
+        .breadcrumb-item a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Contact Info */
+        .contact-info-box {
+            background: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .contact-info-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-info-icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            background: var(--primary);
+            color: var(--light);
+            font-size: 30px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+
+        .contact-info-box:hover .contact-info-icon {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .contact-info-box h3 {
+            margin-bottom: 15px;
+        }
+
+        .contact-info-box p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info-box a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info-box a:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #fff;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            height: 50px;
+            border: 1px solid #e1e1e1;
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            font-size: 16px;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: none;
+        }
+
+        textarea.form-control {
+            height: 200px;
+            resize: none;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Map */
+        .map-container {
+            height: 450px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Business Hours */
+        .business-hours {
+            background: var(--primary);
+            color: var(--light);
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .business-hours h3 {
+            color: var(--light);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 500;
+        }
+
+        .closed {
+            color: var(--accent);
+        }
+
+        /* Follow Us */
+        .social-follow {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .social-follow h3 {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            color: var(--primary);
+        }
+
+        .social-icon i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .social-icon span {
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .faq-question {
+            position: relative;
+            padding: 20px 50px 20px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .faq-question::after {
+            content: '\f282';
+            font-family: 'Bootstrap-icons';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+        }
+
+        .faq-question.active {
+            color: var(--primary);
+        }
+
+        .faq-question.active::after {
+            content: '\f286';
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #999;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-about {
+            margin-bottom: 30px;
+        }
+
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links li a {
+            color: #999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info li i {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .footer-social {
+            margin-top: 30px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* Form Success/Error Messages */
+        .form-message {
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            .section-padding {
+                padding: 80px 0;
+            }
+            .section-title h2 {
+                font-size: 36px;
+            }
+            .page-banner h1 {
+                font-size: 36px;
+            }
+            .contact-form {
+                padding: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+            .page-banner h1 {
+                font-size: 32px;
+            }
+        }
+    
+    </style>
+<style>
+  /* Industry-specific color scheme for Creative & Design */
+  :root {
+    /* Override ALL color variables with industry-specific colors */
+    --primary-color: #7c3aed !important;
+    --primary-light: #6d28d9 !important;
+    --primary-dark: #5b21b6 !important;
+    
+    --secondary-color: #f59e0b !important;
+    --secondary-light: #d97706 !important;
+    --secondary-dark: #b45309 !important;
+    
+    --accent-color: #ec4899 !important;
+    --accent-light: #db2777 !important;
+    --accent-dark: #be185d !important;
+    
+    /* Override common template color variables */
+    --primary: #7c3aed !important;
+    --secondary: #f59e0b !important;
+    --accent: #ec4899 !important;
+    --dark: #1A1A1A !important;
+    --light: #FFFFFF !important;
+    --gray: #6C6C6C !important;
+    
+    /* Override gradient */
+    --gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+    
+    /* Common color mappings */
+    --brand-primary: #7c3aed !important;
+    --brand-secondary: #f59e0b !important;
+    --color-primary: #7c3aed !important;
+    --color-secondary: #f59e0b !important;
+    --theme-primary: #7c3aed !important;
+    --theme-secondary: #f59e0b !important;
+  }
+  
+  /* Apply colors to common Bootstrap and template patterns */
+  .btn-primary,
+  .primary-button,
+  button.primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+  }
+  
+  .btn-primary:hover,
+  .primary-button:hover,
+  button.primary:hover {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+  }
+  
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+  
+  .bg-primary {
+    background-color: var(--primary-color) !important;
+  }
+  
+  .border-primary {
+    border-color: var(--primary-color) !important;
+  }
+  
+  /* Links */
+  a {
+    color: var(--primary-color);
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+  }
+  
+  /* Hero sections */
+  .hero,
+  .hero-section,
+  .jumbotron {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+  }
+  
+  /* Navigation */
+  .navbar-brand {
+    color: var(--primary-color) !important;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary-color) !important;
+  }
+  
+  /* Forms */
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.25);
+  }
+  
+  /* Cards and sections */
+  .card-header {
+    background-color: var(--primary-light);
+    color: white;
+  }
+  
+  /* Industry-specific adjustments */
+  
+  
+  
+  
+  
+  
+  /* Aggressive overrides for templates with hardcoded colors */
+  /* Target specific color values that templates might use */
+  [style*="#FF6B35"] { color: #7c3aed !important; }
+  [style*="#F7931E"] { color: #f59e0b !important; }
+  [style*="#FFD23F"] { color: #ec4899 !important; }
+  
+  /* Override inline styles and hardcoded backgrounds */
+  .hero[style*="background"] {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+  }
+  
+  /* Force color changes on elements that might have inline styles */
+  .text-primary,
+  [class*="text-primary"],
+  [class*="color-primary"] {
+    color: #7c3aed !important;
+  }
+  
+  .bg-primary,
+  [class*="bg-primary"],
+  [class*="background-primary"] {
+    background-color: #7c3aed !important;
+  }
+  
+  /* Override gradient classes */
+  .text-gradient,
+  [class*="gradient"] {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+  
+  /* Ensure buttons use new colors */
+  button,
+  .btn,
+  [type="button"],
+  [type="submit"] {
+    transition: all 0.3s ease;
+  }
+  
+  /* Apply primary colors to buttons with specific primary classes */
+  .btn-primary,
+  .primary-button,
+  button.primary {
+    background-color: #7c3aed !important;
+    border-color: #7c3aed !important;
+  }
+  
+  .btn-primary:hover,
+  .primary-button:hover,
+  button.primary:hover {
+    background-color: #5b21b6 !important;
+    border-color: #5b21b6 !important;
+  }
+  
+  /* Default button styles - without !important to allow customization */
+  button:not([class*="btn-"]):not([style*="background"]),
+  .btn:not([class*="btn-"]):not([style*="background"]) {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+  }
+  
+  button:not([class*="btn-"]):not([style*="background"]):hover,
+  .btn:not([class*="btn-"]):not([style*="background"]):hover {
+    background-color: #5b21b6;
+    border-color: #5b21b6;
+  }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Lens<span>Vision</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('images/contact-banner.jpg');">
+        <div class="container">
+            <div class="page-banner-content">
+                <h1>Contact test</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Reach out to our photography experts today with test</h2>
+                <p>We're here to answer your questions and help you book your next photography session</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-box">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h3>Visit Our Studio</h3>
+                        <p>123 Broadway</p>
+                        <p>New York, NY 10001</p>
+                        <p>United States</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-box">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:info@lensvision.com">info@lensvision.com</a></p>
+                        <p><a href="mailto:bookings@lensvision.com">bookings@lensvision.com</a></p>
+                        <p><a href="mailto:support@lensvision.com">support@lensvision.com</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-info-box">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+12125551234">(212) 555-1234</a> - Main</p>
+                        <p><a href="tel:+12125551235">(212) 555-1235</a> - Bookings</p>
+                        <p><a href="tel:+12125551236">(212) 555-1236</a> - Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="contact-form">
+                        <div class="section-title">
+                            <h2>Send Us a Message</h2>
+                            <p>Fill out the form below and we'll get back to you as soon as possible</p>
+                        </div>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="name" class="form-label">Your Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="email" class="form-label">Your Email *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="subject" class="form-label">Subject *</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="service" class="form-label">Service Interested In</label>
+                                <select class="form-control" id="service" name="service">
+                                    <option value="">Select a Service</option>
+                                    <option value="Portrait Photography">Portrait Photography</option>
+                                    <option value="Wedding Photography">Wedding Photography</option>
+                                    <option value="Commercial Photography">Commercial Photography</option>
+                                    <option value="Event Photography">Event Photography</option>
+                                    <option value="Fine Art Photography">Fine Art Photography</option>
+                                    <option value="Video Production">Video Production</option>
+                                    <option value="Other">Other (Specify in Message)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Your Message *</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                            <div class="form-message success" id="formSuccess">
+                                Your message has been sent successfully. We'll get back to you as soon as possible.
+                            </div>
+                            <div class="form-message error" id="formError">
+                                Oops! There was a problem sending your message. Please try again later.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="business-hours">
+                        <h3>Business Hours</h3>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Monday</span>
+                                <span class="time">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Tuesday</span>
+                                <span class="time">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Wednesday</span>
+                                <span class="time">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Thursday</span>
+                                <span class="time">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Friday</span>
+                                <span class="time">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Saturday</span>
+                                <span class="time">10:00 AM - 4:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Sunday</span>
+                                <span class="time closed">Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="social-follow">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-facebook"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-pinterest"></i>
+                                <span>Pinterest</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Visit Our Studio</h2>
+                <p>Find us at our centrally located studio in New York City</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343016!2d-74.0059418845959!3d40.74127977932881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9aeb1c6b5%3A0x35b1cfbc89a6097f!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1593517687662!5m2!1sen!2sus" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about booking and working with us</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="faq-item">
+                        <div class="faq-question">How do I book a photography session?</div>
+                        <div class="faq-answer">
+                            <p>You can book a photography session by filling out the contact form on this page, calling our booking line at (212) 555-1235, or emailing us at bookings@lensvision.com. After your initial inquiry, we'll schedule a technical assessment (in-person or virtual) to discuss your needs and select the best package for you.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What is your cancellation policy?</div>
+                        <div class="faq-answer">
+                            <p>For standard sessions, we require 48 hours' notice for cancellations or rescheduling. For weddings and larger events, our cancellation policy varies depending on how far in advance the cancellation occurs. Deposits are non-refundable, but they can be applied to a future session if rescheduled within 6 months.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="faq-item">
+                        <div class="faq-question">Do you travel for photography sessions?</div>
+                        <div class="faq-answer">
+                            <p>Yes, we are available for travel both domestically and internationally. Local sessions (within 30 miles of New York City) don't incur travel fees. For locations beyond this range, travel fees apply based on distance. For destination weddings and events, please Contact test for a custom quote.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">How quickly will I receive my photos?</div>
+                        <div class="faq-answer">
+                            <p>Delivery times vary by service: portrait sessions are typically delivered within 1-2 weeks, weddings within 4-6 weeks, and commercial implementations and deployments according to the agreed timeline. Rush delivery options are available for an additional fee. You'll receive your photos via a private online gallery for easy downloading and sharing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p>Have more questions? Don't hesitate to Reach out to our photography experts today with test with us.</p>
+                <a href="#" class="btn btn-primary">Ask a Question</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <a href="index.html" class="footer-logo">Lens<span>Vision</span></a>
+                        <p>Premium photography studio specializing in portrait, wedding, commercial, and fine art photography. We capture life's precious moments with creativity and passion.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About test</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html#portrait">Portrait Photography</a></li>
+                        <li><a href="services.html#wedding">Wedding Photography</a></li>
+                        <li><a href="services.html#commercial">Commercial Photography</a></li>
+                        <li><a href="services.html#event">Event Photography</a></li>
+                        <li><a href="services.html#fineart">Fine Art Photography</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Contact Info</h5>
+                    <ul class="footer-contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 123 Broadway, New York, NY 10001</li>
+                        <li><i class="bi bi-telephone"></i> (212) 555-1234</li>
+                        <li><i class="bi bi-envelope"></i> info@lensvision.com</li>
+                        <li><i class="bi bi-clock"></i> Monday-Friday: 9am-6pm<br>Saturday: 10am-4pm<br>Sunday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 LensVision Photography Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    
+                    // Toggle active class on question
+                    this.classList.toggle('active');
+                    
+                    // Toggle show class on answer
+                    answer.classList.toggle('show');
+                });
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+            
+            // In a real implementation, you would send the form data to a server
+            // Here we're just showing the success message for demonstration
+            
+            // Show success message
+            formSuccess.style.display = 'block';
+            
+            // Hide error message if visible
+            formError.style.display = 'none';
+            
+            // Reset form after submission
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+                formSuccess.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+
+    <!-- Universal Form Handler -->
+    <script>
+      window.FORM_HANDLER_CONFIG = {
+        apiEndpoint: 'https://genmysite.com/api/forms/submit',
+        websiteId: null,
+        recaptchaSiteKey: null,
+        debug: false
+      };
+    </script>
+    <script src="/js/form-handler.js" defer></script>
+</body>
+</html>
