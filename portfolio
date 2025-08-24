@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | LensVision Photography Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+    <style>
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .btn {
+            border-radius: var(--border-radius);
+            padding: 12px 28px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .section-title.text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            height: 400px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 90px;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .page-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+
+        .breadcrumb-item {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--light);
+        }
+
+        .breadcrumb-item a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Portfolio Filter */
+        .portfolio-filter {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .portfolio-filter button {
+            border: none;
+            background: transparent;
+            font-weight: 500;
+            padding: 5px 15px;
+            margin: 0 5px 10px;
+            color: var(--text-dark);
+            position: relative;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .portfolio-filter button.active,
+        .portfolio-filter button:hover {
+            color: var(--primary);
+        }
+
+        .portfolio-filter button::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .portfolio-filter button.active::after,
+        .portfolio-filter button:hover::after {
+            width: 30px;
+        }
+
+        /* Portfolio Items */
+        .portfolio-container {
+            margin-bottom: 50px;
+        }
+
+        .portfolio-item {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+        }
+
+        .portfolio-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-info {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            bottom: 0;
+        }
+
+        .portfolio-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .portfolio-info p {
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        /* Masonry Layout */
+        .masonry-layout {
+            column-count: 3;
+            column-gap: 30px;
+        }
+
+        @media (max-width: 991px) {
+            .masonry-layout {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .masonry-layout {
+                column-count: 1;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+        }
+
+        .masonry-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .masonry-img img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .masonry-item:hover .masonry-img img {
+            transform: scale(1.05);
+        }
+
+        .masonry-info {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            transition: var(--transition);
+        }
+
+        .masonry-item:hover .masonry-info {
+            bottom: 0;
+        }
+
+        .masonry-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .masonry-info p {
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        /* Portfolio Categories */
+        .category-section {
+            padding: 80px 0;
+        }
+
+        .category-section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .category-title {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .category-title h2 {
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .category-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* LightGallery Custom Styles */
+        .lg-backdrop {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lg-toolbar, .lg-outer .lg-thumb-outer, .lg-outer .lg-toogle-thumb {
+            background-color: rgba(0, 0, 0, 0.45);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .testimonials .section-title h2 {
+            color: var(--light);
+        }
+
+        .testimonials .section-title h2::after {
+            background: var(--accent);
+        }
+
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-item::before {
+            content: '\f10d';
+            font-family: 'Bootstrap-icons';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-text {
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .testimonial-author-info h5 {
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+
+        .testimonial-author-info span {
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            margin-bottom: 30px;
+        }
+
+        .contact-cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #999;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-about {
+            margin-bottom: 30px;
+        }
+
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links li a {
+            color: #999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info li i {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .footer-social {
+            margin-top: 30px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            .section-padding {
+                padding: 80px 0;
+            }
+            .section-title h2 {
+                font-size: 36px;
+            }
+            .page-banner h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+            .page-banner h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+    <style type="text/css">
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .btn {
+            border-radius: var(--border-radius);
+            padding: 12px 28px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .section-title.text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            height: 400px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 90px;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .page-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+
+        .breadcrumb-item {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--light);
+        }
+
+        .breadcrumb-item a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Portfolio Filter */
+        .portfolio-filter {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .portfolio-filter button {
+            border: none;
+            background: transparent;
+            font-weight: 500;
+            padding: 5px 15px;
+            margin: 0 5px 10px;
+            color: var(--text-dark);
+            position: relative;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .portfolio-filter button.active,
+        .portfolio-filter button:hover {
+            color: var(--primary);
+        }
+
+        .portfolio-filter button::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .portfolio-filter button.active::after,
+        .portfolio-filter button:hover::after {
+            width: 30px;
+        }
+
+        /* Portfolio Items */
+        .portfolio-container {
+            margin-bottom: 50px;
+        }
+
+        .portfolio-item {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+        }
+
+        .portfolio-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-info {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-info {
+            bottom: 0;
+        }
+
+        .portfolio-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .portfolio-info p {
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        /* Masonry Layout */
+        .masonry-layout {
+            column-count: 3;
+            column-gap: 30px;
+        }
+
+        @media (max-width: 991px) {
+            .masonry-layout {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .masonry-layout {
+                column-count: 1;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+        }
+
+        .masonry-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .masonry-img img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .masonry-item:hover .masonry-img img {
+            transform: scale(1.05);
+        }
+
+        .masonry-info {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.8);
+            transition: var(--transition);
+        }
+
+        .masonry-item:hover .masonry-info {
+            bottom: 0;
+        }
+
+        .masonry-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .masonry-info p {
+            color: var(--accent);
+            margin-bottom: 0;
+        }
+
+        /* Portfolio Categories */
+        .category-section {
+            padding: 80px 0;
+        }
+
+        .category-section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .category-title {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .category-title h2 {
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .category-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* LightGallery Custom Styles */
+        .lg-backdrop {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lg-toolbar, .lg-outer .lg-thumb-outer, .lg-outer .lg-toogle-thumb {
+            background-color: rgba(0, 0, 0, 0.45);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .testimonials .section-title h2 {
+            color: var(--light);
+        }
+
+        .testimonials .section-title h2::after {
+            background: var(--accent);
+        }
+
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-item::before {
+            content: '\f10d';
+            font-family: 'Bootstrap-icons';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-text {
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .testimonial-author-info h5 {
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+
+        .testimonial-author-info span {
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            margin-bottom: 30px;
+        }
+
+        .contact-cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #999;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-about {
+            margin-bottom: 30px;
+        }
+
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links li a {
+            color: #999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info li i {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .footer-social {
+            margin-top: 30px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            .section-padding {
+                padding: 80px 0;
+            }
+            .section-title h2 {
+                font-size: 36px;
+            }
+            .page-banner h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+            .page-banner h1 {
+                font-size: 32px;
+            }
+        }
+    
+    </style>
+<style>
+  /* Industry-specific color scheme for Creative & Design */
+  :root {
+    /* Override ALL color variables with industry-specific colors */
+    --primary-color: #7c3aed !important;
+    --primary-light: #6d28d9 !important;
+    --primary-dark: #5b21b6 !important;
+    
+    --secondary-color: #f59e0b !important;
+    --secondary-light: #d97706 !important;
+    --secondary-dark: #b45309 !important;
+    
+    --accent-color: #ec4899 !important;
+    --accent-light: #db2777 !important;
+    --accent-dark: #be185d !important;
+    
+    /* Override common template color variables */
+    --primary: #7c3aed !important;
+    --secondary: #f59e0b !important;
+    --accent: #ec4899 !important;
+    --dark: #1A1A1A !important;
+    --light: #FFFFFF !important;
+    --gray: #6C6C6C !important;
+    
+    /* Override gradient */
+    --gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+    
+    /* Common color mappings */
+    --brand-primary: #7c3aed !important;
+    --brand-secondary: #f59e0b !important;
+    --color-primary: #7c3aed !important;
+    --color-secondary: #f59e0b !important;
+    --theme-primary: #7c3aed !important;
+    --theme-secondary: #f59e0b !important;
+  }
+  
+  /* Apply colors to common Bootstrap and template patterns */
+  .btn-primary,
+  .primary-button,
+  button.primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+  }
+  
+  .btn-primary:hover,
+  .primary-button:hover,
+  button.primary:hover {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+  }
+  
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+  
+  .bg-primary {
+    background-color: var(--primary-color) !important;
+  }
+  
+  .border-primary {
+    border-color: var(--primary-color) !important;
+  }
+  
+  /* Links */
+  a {
+    color: var(--primary-color);
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+  }
+  
+  /* Hero sections */
+  .hero,
+  .hero-section,
+  .jumbotron {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+  }
+  
+  /* Navigation */
+  .navbar-brand {
+    color: var(--primary-color) !important;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary-color) !important;
+  }
+  
+  /* Forms */
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.25);
+  }
+  
+  /* Cards and sections */
+  .card-header {
+    background-color: var(--primary-light);
+    color: white;
+  }
+  
+  /* Industry-specific adjustments */
+  
+  
+  
+  
+  
+  
+  /* Aggressive overrides for templates with hardcoded colors */
+  /* Target specific color values that templates might use */
+  [style*="#FF6B35"] { color: #7c3aed !important; }
+  [style*="#F7931E"] { color: #f59e0b !important; }
+  [style*="#FFD23F"] { color: #ec4899 !important; }
+  
+  /* Override inline styles and hardcoded backgrounds */
+  .hero[style*="background"] {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+  }
+  
+  /* Force color changes on elements that might have inline styles */
+  .text-primary,
+  [class*="text-primary"],
+  [class*="color-primary"] {
+    color: #7c3aed !important;
+  }
+  
+  .bg-primary,
+  [class*="bg-primary"],
+  [class*="background-primary"] {
+    background-color: #7c3aed !important;
+  }
+  
+  /* Override gradient classes */
+  .text-gradient,
+  [class*="gradient"] {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+  
+  /* Ensure buttons use new colors */
+  button,
+  .btn,
+  [type="button"],
+  [type="submit"] {
+    transition: all 0.3s ease;
+  }
+  
+  /* Apply primary colors to buttons with specific primary classes */
+  .btn-primary,
+  .primary-button,
+  button.primary {
+    background-color: #7c3aed !important;
+    border-color: #7c3aed !important;
+  }
+  
+  .btn-primary:hover,
+  .primary-button:hover,
+  button.primary:hover {
+    background-color: #5b21b6 !important;
+    border-color: #5b21b6 !important;
+  }
+  
+  /* Default button styles - without !important to allow customization */
+  button:not([class*="btn-"]):not([style*="background"]),
+  .btn:not([class*="btn-"]):not([style*="background"]) {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+  }
+  
+  button:not([class*="btn-"]):not([style*="background"]):hover,
+  .btn:not([class*="btn-"]):not([style*="background"]):hover {
+    background-color: #5b21b6;
+    border-color: #5b21b6;
+  }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Lens<span>Vision</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('images/portfolio-banner.jpg');">
+        <div class="container">
+            <div class="page-banner-content">
+                <h1>Our Portfolio</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter & Grid -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Work</h2>
+                <p>Browse through our collection of professional photography across various categories</p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="active" data-filter="all">All</button>
+                <button data-filter="portrait">Portrait</button>
+                <button data-filter="wedding">Wedding</button>
+                <button data-filter="commercial">Commercial</button>
+                <button data-filter="event">Event</button>
+                <button data-filter="fineart">Fine Art</button>
+            </div>
+            <div class="row portfolio-container">
+                <div class="col-lg-4 col-md-6 portfolio-item portrait">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1493421419110-74f4e85ba126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Portrait Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Corporate Headshot</h4>
+                        <p>Portrait Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item wedding">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8659b8e77b29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Wedding Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Garden Wedding</h4>
+                        <p>Wedding Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item commercial">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Commercial Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Product Display</h4>
+                        <p>Commercial Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item event">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Event Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Corporate Gala</h4>
+                        <p>Event Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item fineart">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Fine Art Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Urban Landscape</h4>
+                        <p>Fine Art Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item portrait">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1493421419110-74f4e85ba126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Portrait Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Family Portrait</h4>
+                        <p>Portrait Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item wedding">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8659b8e77b29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Wedding Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Beach Ceremony</h4>
+                        <p>Wedding Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item commercial">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Commercial Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Fashion Lookbook</h4>
+                        <p>Commercial Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item event">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Event Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Music Festival</h4>
+                        <p>Event Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item fineart">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Fine Art Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Minimalist Study</h4>
+                        <p>Fine Art Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item portrait">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1493421419110-74f4e85ba126?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Portrait Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Studio Portrait</h4>
+                        <p>Portrait Photography</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item wedding">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8659b8e77b29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Wedding Photography" class="img-fluid">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>First Dance</h4>
+                        <p>Wedding Photography</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Categories -->
+    <section id="wedding" class="category-section">
+        <div class="container">
+            <div class="category-title">
+                <h2>Wedding Photography</h2>
+                <p>Capturing your special day with elegance and emotion</p>
+            </div>
+            <div class="masonry-layout" id="weddingGallery">
+                <div class="masonry-item" data-src="images/wedding-1.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Wedding Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Garden Wedding</h4>
+                        <p>Sarah & David</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/wedding-2.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Wedding Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Ceremony Moments</h4>
+                        <p>Jessica & Michael</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/wedding-3.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Wedding Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>First Look</h4>
+                        <p>Emily & James</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/wedding-4.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Wedding Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Sunset Portraits</h4>
+                        <p>Ashley & Thomas</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/wedding-5.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Wedding Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Reception Details</h4>
+                        <p>Emma & John</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/wedding-6.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Wedding Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>First Dance</h4>
+                        <p>Olivia & William</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portrait" class="category-section">
+        <div class="container">
+            <div class="category-title">
+                <h2>Portrait Photography</h2>
+                <p>Capturing personalities with creative, expressive portraiture</p>
+            </div>
+            <div class="masonry-layout" id="portraitGallery">
+                <div class="masonry-item" data-src="images/portrait-1.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Portrait Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Corporate Headshot</h4>
+                        <p>Executive Series</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/portrait-2.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Portrait Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Family Session</h4>
+                        <p>The Wilson Family</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/portrait-3.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Portrait Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Lifestyle Portrait</h4>
+                        <p>Urban Setting</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/portrait-4.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Portrait Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Graduation Portrait</h4>
+                        <p>Class of 2025</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/portrait-5.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Portrait Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Maternity Session</h4>
+                        <p>New Beginnings</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/portrait-6.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Portrait Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Studio Portrait</h4>
+                        <p>Classic Series</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="commercial" class="category-section">
+        <div class="container">
+            <div class="category-title">
+                <h2>Commercial Photography</h2>
+                <p>Elevating brands with high-quality commercial imagery</p>
+            </div>
+            <div class="masonry-layout" id="commercialGallery">
+                <div class="masonry-item" data-src="images/commercial-1.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Commercial Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Product Photography</h4>
+                        <p>Lifestyle Products</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/commercial-2.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Commercial Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Real Estate</h4>
+                        <p>Luxury Properties</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/commercial-3.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Commercial Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Food Photography</h4>
+                        <p>Restaurant Menu</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/commercial-4.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Commercial Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Fashion Campaign</h4>
+                        <p>Seasonal Collection</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/commercial-5.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Commercial Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Corporate Branding</h4>
+                        <p>Team & Workspace</p>
+                    </div>
+                </div>
+                <div class="masonry-item" data-src="images/commercial-6.jpg">
+                    <div class="masonry-img">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Commercial Photography">
+                    </div>
+                    <div class="masonry-info">
+                        <h4>Product Lifestyle</h4>
+                        <p>Tech Gadgets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Client Reviews</h2>
+                <p>What test users and businesses say about their experience with our photography services</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">
+                            <p>"Working with LensVision for our wedding photography was an absolute dream. Michael and his team were incredibly professional, made everyone feel comfortable, and captured all the special moments of our day beautifully. The photos exceeded our expectations!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100&q=80" alt="Client">
+                            <div class="testimonial-author-info">
+                                <h5>Emily & David</h5>
+                                <span>Wedding users and businesses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">
+                            <p>"The product photography that LensVision created for our e-commerce site has significantly improved our conversion rates. Their attention to detail and understanding of how to showcase products in the best light has been invaluable to our business."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100&q=80" alt="Client">
+                            <div class="testimonial-author-info">
+                                <h5>Robert Johnson</h5>
+                                <span>Business Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-item">
+                        <div class="testimonial-text">
+                            <p>"I was nervous about my corporate headshots, but LensVision made the experience enjoyable and stress-free. They took the time to understand what I wanted to convey through my photos and delivered results that perfectly aligned with my professional brand."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100&q=80" alt="Client">
+                            <div class="testimonial-author-info">
+                                <h5>Jennifer Taylor</h5>
+                                <span>Executive Director</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta section-padding">
+        <div class="container">
+            <h2>Ready to Capture Your Special Moments?</h2>
+            <p>Contact test today to discuss your photography needs and book your session. Whether you need portrait, wedding, commercial, or event photography, we're here to help bring your vision to life.</p>
+            <a href="contact.html" class="btn btn-primary">Contact test Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <a href="index.html" class="footer-logo">Lens<span>Vision</span></a>
+                        <p>Premium photography studio specializing in portrait, wedding, commercial, and fine art photography. We capture life's precious moments with creativity and passion.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About test</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html#portrait">Portrait Photography</a></li>
+                        <li><a href="services.html#wedding">Wedding Photography</a></li>
+                        <li><a href="services.html#commercial">Commercial Photography</a></li>
+                        <li><a href="services.html#event">Event Photography</a></li>
+                        <li><a href="services.html#fineart">Fine Art Photography</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Contact Info</h5>
+                    <ul class="footer-contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 123 Broadway, New York, NY 10001</li>
+                        <li><i class="bi bi-telephone"></i> (212) 555-1234</li>
+                        <li><i class="bi bi-envelope"></i> info@lensvision.com</li>
+                        <li><i class="bi bi-clock"></i> Monday-Friday: 9am-6pm<br>Saturday: 10am-4pm<br>Sunday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 LensVision Photography Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <script>
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Portfolio filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.portfolio-filter button');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Initialize LightGallery for wedding gallery
+            lightGallery(document.getElementById('weddingGallery'), {
+                selector: '.masonry-item',
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                counter: true,
+                thumbnail: true
+            });
+
+            // Initialize LightGallery for portrait gallery
+            lightGallery(document.getElementById('portraitGallery'), {
+                selector: '.masonry-item',
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                counter: true,
+                thumbnail: true
+            });
+
+            // Initialize LightGallery for commercial gallery
+            lightGallery(document.getElementById('commercialGallery'), {
+                selector: '.masonry-item',
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                counter: true,
+                thumbnail: true
+            });
+        });
+    </script>
+
+    <!-- Universal Form Handler -->
+    <script>
+      window.FORM_HANDLER_CONFIG = {
+        apiEndpoint: 'https://genmysite.com/api/forms/submit',
+        websiteId: null,
+        recaptchaSiteKey: null,
+        debug: false
+      };
+    </script>
+    <script src="/js/form-handler.js" defer></script>
+</body>
+</html>
