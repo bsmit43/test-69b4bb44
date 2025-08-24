@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About test | LensVision Photography Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .btn {
+            border-radius: var(--border-radius);
+            padding: 12px 28px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .section-title.text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            height: 400px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 90px;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .page-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+
+        .breadcrumb-item {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--light);
+        }
+
+        .breadcrumb-item a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent);
+        }
+
+        /* About Section */
+        .about-img {
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-img img {
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+        }
+
+        .about-signature {
+            margin-top: 30px;
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        /* Mission Section */
+        .mission-box {
+            padding: 50px 40px;
+            text-align: center;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .mission-box:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            background: var(--primary);
+            color: var(--light);
+            font-size: 30px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+
+        .mission-box:hover .mission-icon {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .mission-box h3 {
+            margin-bottom: 20px;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background-color: var(--primary);
+        }
+
+        .timeline > li {
+            position: relative;
+            margin-bottom: 50px;
+            min-height: 170px;
+        }
+
+        .timeline > li:after, .timeline > li:before {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li .timeline-panel {
+            position: relative;
+            float: left;
+            width: 46%;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            background: #fff;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+        }
+
+        .timeline > li .timeline-image {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            text-align: center;
+            color: var(--light);
+            background-color: var(--primary);
+            left: 50%;
+            top: 0;
+            margin-left: -60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .timeline > li .timeline-image h4 {
+            margin-top: 12px;
+            font-size: 18px;
+            line-height: 1.2;
+            color: var(--light);
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+
+        .timeline-heading h3 {
+            margin-bottom: 15px;
+        }
+
+        .timeline-heading h4 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Team Section */
+        .team-member {
+            position: relative;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+        }
+
+        .team-member img {
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: rgba(74, 44, 64, 0.9);
+            transition: var(--transition);
+        }
+
+        .team-member:hover .team-info {
+            bottom: 0;
+        }
+
+        .team-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .team-info span {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .team-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .team-social {
+            display: flex;
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+
+        .team-social a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Achievements */
+        .achievements {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .achievements .section-title h2 {
+            color: var(--light);
+        }
+
+        .achievements .section-title h2::after {
+            background: var(--accent);
+        }
+
+        .achievement-item {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .achievement-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .achievement-number {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            font-family: var(--font-heading);
+            margin-bottom: 15px;
+        }
+
+        .achievement-text {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Equipment */
+        .equipment-box {
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 30px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .equipment-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .equipment-box img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .equipment-box h4 {
+            margin-bottom: 15px;
+        }
+
+        .equipment-box p {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #999;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-about {
+            margin-bottom: 30px;
+        }
+
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links li a {
+            color: #999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info li i {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .footer-social {
+            margin-top: 30px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            .section-padding {
+                padding: 80px 0;
+            }
+            .section-title h2 {
+                font-size: 36px;
+            }
+            .page-banner h1 {
+                font-size: 36px;
+            }
+            .timeline:before {
+                left: 60px;
+            }
+            .timeline > li .timeline-panel {
+                width: calc(100% - 140px);
+                float: right;
+            }
+            .timeline > li .timeline-image {
+                left: 0;
+                margin-left: 0;
+                width: 100px;
+                height: 100px;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel {
+                float: right;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            .about-img {
+                margin-bottom: 30px;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+            .page-banner h1 {
+                font-size: 32px;
+            }
+            .timeline > li .timeline-image {
+                width: 80px;
+                height: 80px;
+            }
+            .timeline > li .timeline-panel {
+                width: calc(100% - 110px);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style type="text/css">
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+
+        :root {
+            --primary: #4a2c40;
+            --secondary: #b8a99b;
+            --dark: #1c1c1c;
+            --light: #f8f9fa;
+            --accent: #e7c8b6;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --border-radius: 0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .btn {
+            border-radius: var(--border-radius);
+            padding: 12px 28px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .section-title.text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Page Banner */
+        .page-banner {
+            position: relative;
+            height: 400px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            margin-top: 90px;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .page-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+
+        .breadcrumb-item {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--light);
+        }
+
+        .breadcrumb-item a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--accent);
+        }
+
+        /* About Section */
+        .about-img {
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-img img {
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+        }
+
+        .about-signature {
+            margin-top: 30px;
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        /* Mission Section */
+        .mission-box {
+            padding: 50px 40px;
+            text-align: center;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .mission-box:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            background: var(--primary);
+            color: var(--light);
+            font-size: 30px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+
+        .mission-box:hover .mission-icon {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .mission-box h3 {
+            margin-bottom: 20px;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background-color: var(--primary);
+        }
+
+        .timeline > li {
+            position: relative;
+            margin-bottom: 50px;
+            min-height: 170px;
+        }
+
+        .timeline > li:after, .timeline > li:before {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li .timeline-panel {
+            position: relative;
+            float: left;
+            width: 46%;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            background: #fff;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+        }
+
+        .timeline > li .timeline-image {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            text-align: center;
+            color: var(--light);
+            background-color: var(--primary);
+            left: 50%;
+            top: 0;
+            margin-left: -60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .timeline > li .timeline-image h4 {
+            margin-top: 12px;
+            font-size: 18px;
+            line-height: 1.2;
+            color: var(--light);
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+
+        .timeline-heading h3 {
+            margin-bottom: 15px;
+        }
+
+        .timeline-heading h4 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Team Section */
+        .team-member {
+            position: relative;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+        }
+
+        .team-member img {
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.05);
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: rgba(74, 44, 64, 0.9);
+            transition: var(--transition);
+        }
+
+        .team-member:hover .team-info {
+            bottom: 0;
+        }
+
+        .team-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .team-info span {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .team-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .team-social {
+            display: flex;
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+
+        .team-social a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Achievements */
+        .achievements {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .achievements .section-title h2 {
+            color: var(--light);
+        }
+
+        .achievements .section-title h2::after {
+            background: var(--accent);
+        }
+
+        .achievement-item {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .achievement-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .achievement-number {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            font-family: var(--font-heading);
+            margin-bottom: 15px;
+        }
+
+        .achievement-text {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Equipment */
+        .equipment-box {
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 30px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .equipment-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .equipment-box img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .equipment-box h4 {
+            margin-bottom: 15px;
+        }
+
+        .equipment-box p {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #999;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-about {
+            margin-bottom: 30px;
+        }
+
+        .footer h5 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links li a {
+            color: #999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-info li i {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .footer-social {
+            margin-top: 30px;
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            .section-padding {
+                padding: 80px 0;
+            }
+            .section-title h2 {
+                font-size: 36px;
+            }
+            .page-banner h1 {
+                font-size: 36px;
+            }
+            .timeline:before {
+                left: 60px;
+            }
+            .timeline > li .timeline-panel {
+                width: calc(100% - 140px);
+                float: right;
+            }
+            .timeline > li .timeline-image {
+                left: 0;
+                margin-left: 0;
+                width: 100px;
+                height: 100px;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel {
+                float: right;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            .about-img {
+                margin-bottom: 30px;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+            .page-banner h1 {
+                font-size: 32px;
+            }
+            .timeline > li .timeline-image {
+                width: 80px;
+                height: 80px;
+            }
+            .timeline > li .timeline-panel {
+                width: calc(100% - 110px);
+            }
+        }
+    
+    </style>
+<style>
+  /* Industry-specific color scheme for Creative & Design */
+  :root {
+    /* Override ALL color variables with industry-specific colors */
+    --primary-color: #7c3aed !important;
+    --primary-light: #6d28d9 !important;
+    --primary-dark: #5b21b6 !important;
+    
+    --secondary-color: #f59e0b !important;
+    --secondary-light: #d97706 !important;
+    --secondary-dark: #b45309 !important;
+    
+    --accent-color: #ec4899 !important;
+    --accent-light: #db2777 !important;
+    --accent-dark: #be185d !important;
+    
+    /* Override common template color variables */
+    --primary: #7c3aed !important;
+    --secondary: #f59e0b !important;
+    --accent: #ec4899 !important;
+    --dark: #1A1A1A !important;
+    --light: #FFFFFF !important;
+    --gray: #6C6C6C !important;
+    
+    /* Override gradient */
+    --gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+    
+    /* Common color mappings */
+    --brand-primary: #7c3aed !important;
+    --brand-secondary: #f59e0b !important;
+    --color-primary: #7c3aed !important;
+    --color-secondary: #f59e0b !important;
+    --theme-primary: #7c3aed !important;
+    --theme-secondary: #f59e0b !important;
+  }
+  
+  /* Apply colors to common Bootstrap and template patterns */
+  .btn-primary,
+  .primary-button,
+  button.primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+  }
+  
+  .btn-primary:hover,
+  .primary-button:hover,
+  button.primary:hover {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+  }
+  
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+  
+  .bg-primary {
+    background-color: var(--primary-color) !important;
+  }
+  
+  .border-primary {
+    border-color: var(--primary-color) !important;
+  }
+  
+  /* Links */
+  a {
+    color: var(--primary-color);
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+  }
+  
+  /* Hero sections */
+  .hero,
+  .hero-section,
+  .jumbotron {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+  }
+  
+  /* Navigation */
+  .navbar-brand {
+    color: var(--primary-color) !important;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary-color) !important;
+  }
+  
+  /* Forms */
+  .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.25);
+  }
+  
+  /* Cards and sections */
+  .card-header {
+    background-color: var(--primary-light);
+    color: white;
+  }
+  
+  /* Industry-specific adjustments */
+  
+  
+  
+  
+  
+  
+  /* Aggressive overrides for templates with hardcoded colors */
+  /* Target specific color values that templates might use */
+  [style*="#FF6B35"] { color: #7c3aed !important; }
+  [style*="#F7931E"] { color: #f59e0b !important; }
+  [style*="#FFD23F"] { color: #ec4899 !important; }
+  
+  /* Override inline styles and hardcoded backgrounds */
+  .hero[style*="background"] {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+  }
+  
+  /* Force color changes on elements that might have inline styles */
+  .text-primary,
+  [class*="text-primary"],
+  [class*="color-primary"] {
+    color: #7c3aed !important;
+  }
+  
+  .bg-primary,
+  [class*="bg-primary"],
+  [class*="background-primary"] {
+    background-color: #7c3aed !important;
+  }
+  
+  /* Override gradient classes */
+  .text-gradient,
+  [class*="gradient"] {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+  }
+  
+  /* Ensure buttons use new colors */
+  button,
+  .btn,
+  [type="button"],
+  [type="submit"] {
+    transition: all 0.3s ease;
+  }
+  
+  /* Apply primary colors to buttons with specific primary classes */
+  .btn-primary,
+  .primary-button,
+  button.primary {
+    background-color: #7c3aed !important;
+    border-color: #7c3aed !important;
+  }
+  
+  .btn-primary:hover,
+  .primary-button:hover,
+  button.primary:hover {
+    background-color: #5b21b6 !important;
+    border-color: #5b21b6 !important;
+  }
+  
+  /* Default button styles - without !important to allow customization */
+  button:not([class*="btn-"]):not([style*="background"]),
+  .btn:not([class*="btn-"]):not([style*="background"]) {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+  }
+  
+  button:not([class*="btn-"]):not([style*="background"]):hover,
+  .btn:not([class*="btn-"]):not([style*="background"]):hover {
+    background-color: #5b21b6;
+    border-color: #5b21b6;
+  }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Lens<span>Vision</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner" style="background-image: url('images/about-banner.jpg');">
+        <div class="container">
+            <div class="page-banner-content">
+                <h1>About test</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About test</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="about section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="About LensVision Studio" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <div class="section-title">
+                            <h2>The test Story</h2>
+                        </div>
+                        <p>Founded in 2010 by Michael Anderson, LensVision Photography Studio began as a small passion project and has grown into one of New York's premier photography studios. Michael's love for photography started in his early teenage years when he received his first camera as a gift from his father, a hobbyist photographer himself.</p>
+                        <p>After graduating with a degree in Fine Arts Photography from the New York Institute of Photography, Michael worked for several established studios before deciding to pursue his own vision. What started as a one-person operation has now grown into a team of talented photographers, each bringing their unique style and expertise to the studio.</p>
+                        <p>Over the years, LensVision has had the privilege of working with hundreds of users and businesses, from couples celebrating their most precious moments to major brands seeking to elevate their visual presence. Our dedication to quality, creativity, and client satisfaction has earned us numerous awards and recognitions in the photography industry.</p>
+                        <div class="about-signature">Michael Anderson</div>
+                        <p class="text-muted">Founder & Lead Photographer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission section-padding bg-light">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>test's commitment to photography excellence & Values</h2>
+                <p>The principles that guide our work and define our approach to photography</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="mission-box">
+                        <div class="mission-icon">
+                            <i class="bi bi-eye"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>To create timeless, emotion-filled images that capture the essence of life's most precious moments. We strive to be at the forefront of photographic innovation while maintaining the highest standards of quality and artistic integrity.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="mission-box">
+                        <div class="mission-icon">
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <h3>test's commitment to photography excellence</h3>
+                        <p>To provide exceptional photography services that exceed client expectations, delivered with professionalism, creativity, and attention to detail. We are committed to helping test users and businesses preserve their memories and tell their stories through beautiful imagery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="mission-box">
+                        <div class="mission-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h3>Our Values</h3>
+                        <p>We believe in creating an inclusive, collaborative environment that fosters creativity and growth. Our core values include authenticity, excellence, integrity, innovation, and a client-centered approach to everything we do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Journey</h2>
+                <p>How we evolved from a small studio to a renowned photography business</p>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image">
+                        <h4>2010<br>The Start</h4>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>Humble Beginnings</h3>
+                            <h4>2010</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Michael Anderson establishes LensVision as a small home studio, focusing primarily on portrait photography for friends and family. Working with minimal equipment but maximum passion, he begins to build his portfolio and client base.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>2013<br>Growing</h4>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>First Studio Space</h3>
+                            <h4>2013</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>After growing demand for his services, Michael moves LensVision to its first commercial studio space in Brooklyn. He expands the business to include wedding photography and hires his first assistant photographer, Sarah Williams.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image">
+                        <h4>2015<br>Expansion</h4>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>Team Expansion</h3>
+                            <h4>2015</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>LensVision begins to gain recognition in the New York photography scene. The team expands to include five photographers, each specializing in different areas of photography. The studio also starts offering commercial photography services to local businesses.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>2018<br>Recognition</h4>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>Award Recognition</h3>
+                            <h4>2018</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>LensVision wins its first major industry award for wedding photography at the New York Photography Awards. The studio also relocates to a larger space in Manhattan to accommodate growing client needs and expanding team.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image">
+                        <h4>2020<br>Evolution</h4>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>Digital Transformation</h3>
+                            <h4>2020</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Amidst global challenges, LensVision pivots to include virtual photo sessions and expands its digital presence. The studio launches online photography workshops and masterclasses, reaching users and businesses beyond New York.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>2025<br>Today</h4>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h3>Present Day Success</h3>
+                            <h4>2025</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Today, LensVision stands as one of New York's leading photography studios with a team of 12 talented photographers and staff. Having served over 1,000 users and businesses, the studio continues to evolve and innovate while maintaining its commitment to quality and personal touch.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team section-padding bg-light">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Meet Our Team</h2>
+                <p>The talented photographers and staff behind LensVision</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=500&q=80" alt="Team Member" class="img-fluid">
+                        <div class="team-info">
+                            <h4>Michael Anderson</h4>
+                            <span>Founder & Lead Photographer</span>
+                            <p>With over 15 Trusted photography expertise in Not specified, Michael specializes in portrait and fine art photography. His work has been featured in numerous publications and galleries.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=500&q=80" alt="Team Member" class="img-fluid">
+                        <div class="team-info">
+                            <h4>Sarah Williams</h4>
+                            <span>Senior Photographer</span>
+                            <p>Sarah joined LensVision in 2013 and has since become one of our most sought-after wedding photographers. Her candid style captures authentic moments.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=500&q=80" alt="Team Member" class="img-fluid">
+                        <div class="team-info">
+                            <h4>David Chen</h4>
+                            <span>Commercial Photographer</span>
+                            <p>David specializes in commercial and product photography. With a background in graphic design, he brings a unique perspective to visual storytelling.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-behance"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=500&q=80" alt="Team Member" class="img-fluid">
+                        <div class="team-info">
+                            <h4>Elena Rodriguez</h4>
+                            <span>Event Photographer</span>
+                            <p>Elena's vibrant personality shines through in her event photography. She has a knack for capturing the energy and emotion of any occasion.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=500&q=80" alt="Team Member" class="img-fluid">
+                        <div class="team-info">
+                            <h4>James Wilson</h4>
+                            <span>Fine Art Photographer</span>
+                            <p>James joined the team in 2017 and focuses on fine art and landscape photography. His work has been exhibited in galleries across the country.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=500&q=80" alt="Team Member" class="img-fluid">
+                        <div class="team-info">
+                            <h4>Olivia Parker</h4>
+                            <span>Studio Manager</span>
+                            <p>Olivia keeps everything running smoothly at LensVision. With a background in business management and a passion for photography, she's an invaluable part of our team.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Achievements</h2>
+                <p>A look at our journey through numbers</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="bi bi-camera"></i>
+                        </div>
+                        <div class="achievement-number">1,000+</div>
+                        <div class="achievement-text">users and businesses Served</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="bi bi-image"></i>
+                        </div>
+                        <div class="achievement-number">250,000+</div>
+                        <div class="achievement-text">Photos Taken</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <div class="achievement-number">500+</div>
+                        <div class="achievement-text">Weddings Shot</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <div class="achievement-number">15+</div>
+                        <div class="achievement-text">Industry Awards</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="equipment section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Equipment</h2>
+                <p>The professional gear we use to capture your special moments</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="equipment-box">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Camera">
+                        <h4>Professional Cameras</h4>
+                        <p>We use top-of-the-line Canon and Sony cameras including the Canon EOS 5D Mark IV, Canon EOS R5, and Sony A7R IV for exceptional image quality.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="equipment-box">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Lens">
+                        <h4>Premium Lenses</h4>
+                        <p>Our collection includes professional lenses for every situation, from wide-angle landscapes to telephoto portraits, ensuring the perfect shot every time.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="equipment-box">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Lighting">
+                        <h4>Studio Lighting</h4>
+                        <p>Professional Profoto and Godox lighting equipment allows us to create the perfect lighting for studio portraits and on-location shoots.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="equipment-box">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Drone">
+                        <h4>Drone Photography</h4>
+                        <p>For breathtaking aerial shots, we use DJI Mavic Pro 2 drones operated by our licensed drone pilots for unique perspectives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="equipment-box">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Editing">
+                        <h4>Post-Processing</h4>
+                        <p>High-performance workstations with professional editing software including Adobe Lightroom and Photoshop for perfect photo finishes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="equipment-box">
+                        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600&q=80" alt="Printer">
+                        <h4>Professional Printing</h4>
+                        <p>In-house professional printing equipment for archival quality prints, photo books, and large format gallery pieces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <a href="index.html" class="footer-logo">Lens<span>Vision</span></a>
+                        <p>Premium photography studio specializing in portrait, wedding, commercial, and fine art photography. We capture life's precious moments with creativity and passion.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About test</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Portrait Photography</a></li>
+                        <li><a href="services.html">Wedding Photography</a></li>
+                        <li><a href="services.html">Commercial Photography</a></li>
+                        <li><a href="services.html">Event Photography</a></li>
+                        <li><a href="services.html">Fine Art Photography</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Contact Info</h5>
+                    <ul class="footer-contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 123 Broadway, New York, NY 10001</li>
+                        <li><i class="bi bi-telephone"></i> (212) 555-1234</li>
+                        <li><i class="bi bi-envelope"></i> info@lensvision.com</li>
+                        <li><i class="bi bi-clock"></i> Monday-Friday: 9am-6pm<br>Saturday: 10am-4pm<br>Sunday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 LensVision Photography Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Achievement counter animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const achievementNumbers = document.querySelectorAll('.achievement-number');
+            
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            function animateCounter() {
+                achievementNumbers.forEach(number => {
+                    if (isInViewport(number) && !number.classList.contains('animated')) {
+                        const target = parseInt(number.textContent.replace(/,/g, '').replace(/\+/g, ''));
+                        let count = 0;
+                        const duration = 2000; // 2 seconds
+                        const increment = Math.ceil(target / (duration / 20));
+                        
+                        number.classList.add('animated');
+                        
+                        const counter = setInterval(() => {
+                            count += increment;
+                            if (count >= target) {
+                                count = target;
+                                clearInterval(counter);
+                                number.textContent = target.toLocaleString() + '+';
+                            } else {
+                                number.textContent = count.toLocaleString() + '+';
+                            }
+                        }, 20);
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', animateCounter);
+            animateCounter(); // Initial check
+        });
+    </script>
+
+    <!-- Universal Form Handler -->
+    <script>
+      window.FORM_HANDLER_CONFIG = {
+        apiEndpoint: 'https://genmysite.com/api/forms/submit',
+        websiteId: null,
+        recaptchaSiteKey: null,
+        debug: false
+      };
+    </script>
+    <script src="/js/form-handler.js" defer></script>
+</body>
+</html>
