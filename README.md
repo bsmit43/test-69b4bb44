@@ -1,9 +1,9 @@
 # test
 
-A website built with GenAI Site
+this is a test website for a church
 
 ## Description
-No description provided
+this is a test website for a church
 
 ## Deployment
 This website is automatically deployed via Netlify from GitHub.
