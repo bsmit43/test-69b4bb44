@@ -1,9 +1,9 @@
-# test
+# Test
 
-this is a test website for a church
+This is a test website 
 
 ## Description
-this is a test website for a church
+This is a test website 
 
 ## Deployment
 This website is automatically deployed via Netlify from GitHub.
